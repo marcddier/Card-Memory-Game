@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 12636,
   "webpackServerPort": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://i5-dej.anonymous.card-memory-game.exp.direct",
+  "packagerNgrokUrl": "https://packager.i5-dej.anonymous.card-memory-game.exp.direct",
+  "ngrokPid": 12664
 }

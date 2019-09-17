@@ -17,17 +17,6 @@ const Screen = () => {
   const [firstCard, setFirstCard] = useState(null)
   const [secondCard, setSecondCard] = useState(null)
 
-  const frontAnimatedStyle = {
-    transform: [
-      { rotateY: this.frontInterpolate }
-    ]
-  };
-  const backAnimatedStyle = {
-    transform: [
-     { rotateY: this.backInterpolate }
-    ]
-  };
-
   useEffect( () => {
     console.log(selectedCard)
     let temp = selectedCard;
@@ -57,40 +46,17 @@ const Screen = () => {
     }
   }, [secondCard])
 
-  const flipCard = () => {
-    if (this.value >= 90) {
-      Animated.spring(this.animatedValue, {
-        toValue: 0,
-        friction: 8,
-        tension: 10
-      }).start();
-    } else {
-      Animated.spring(this.animatedValue, {
-        toValue: 180,
-        friction: 8,
-        tension: 10
-      }).start();
-    }
-  }
-
   return (
     <Container>
-      <Text>BIENVENUE DANS LE JEU</Text>
       <FlatList 
         data={list}
         renderItem={({item}) => {
           return (
-            <TouchableOpacity onPress={(e) => {
+            <TouchableOpacity onPress={() => {
               setSelectedCard(item)
-              flipCard(e)
             }} >
               <ContainerCard>
-                <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
-                  <ContentCard>{item.name}</ContentCard>
-                </Animated.View>
-                <Animated.View style={[styles.flipCard, styles.flipCardBack, backAnimatedStyle]}>
-                  <ContentCard>{item.value}</ContentCard>
-                </Animated.View>
+                <Card visible={item.display} value={item} key={Math.random()} />
               </ContainerCard>
             </TouchableOpacity>
           )

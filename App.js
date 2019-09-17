@@ -1,10 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import Game from './src/screens/Game'
 
 export default function App() {
+
+  const submit = () => {
+    console.log('start pressed')
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Game />
+      <Button title={'START'} onPress={submit} />
     </View>
   );
 }
